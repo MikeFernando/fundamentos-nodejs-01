@@ -8,9 +8,7 @@ export class Database {
   constructor() {
     fs.readFile(databasePath, 'utf8')
       .then(data => JSON.parse(data))
-      .catch(() => {
-        this.#persist()
-      })
+      .catch(() => this.#persist())
   }
 
   #persist() {
