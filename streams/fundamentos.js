@@ -1,7 +1,3 @@
-// process.stdin
-//   .pipe(process.stdout)
-
-
 import { Readable, Transform, Writable } from 'node:stream'
 
 class OneToHundredStream extends Readable {
@@ -31,6 +27,7 @@ class DecrementNumberStream extends Transform {
 class MultipleByTenStream extends Writable {
   _write(chunk, encoded, callback) {
     console.log(Number(chunk.toString()) * 10)
+    
     callback()
   }
 }
